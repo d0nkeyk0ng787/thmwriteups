@@ -1,16 +1,15 @@
 # Linux PrivEsc Room
-# Completed 15:32 31 DEC 21
-# Donkeyk0ng787/Gnome787
+### Completed 15:32 31 DEC 21
+### Donkeyk0ng787/Gnome787
 
-# MY IP - 10.4.24.252
-# BOX IP - 10.10.218.143
+#### BOX IP - 10.10.218.143
 
-# Creds
+### Creds
 
 	user:password321
 	root:password123
 	
-# Task 2 - Service Exploits
+### Task 2 - Service Exploits
 
 	Given mysql is running as a root user and the "root" user for this service does not have a password assigned to it, we can 
 	use a popular exploit "MySQL 4.x/5.0 (Linux) - User-Defined Function (UDF) Dynamic Library (2)" to run system commands
@@ -39,7 +38,7 @@
 	If you wish to remove the rootbash executable you would simply do
 	rm /tmp/rootbash
 	
-# Task 3 - Weak File Permissions Readable /etc/shadow
+### Task 3 - Weak File Permissions Readable /etc/shadow
 
 	The /etc/shadow file contains user password hashes and is usually readable only by the root user
 	Sometimes developers misconfigure aspects of their machines. One such area is file permissions
@@ -67,7 +66,7 @@
 		'sha512crypt'
 		'password123'
 	
-# Task 4 - Weak File Permissions Writable /etc/shadow
+### Task 4 - Weak File Permissions Writable /etc/shadow
 
 	Continuing on from the last task, our machine also allows for global writing to the /etc/shadow file which 
 	is a major issue since it allows us as an attacker to change any accounts password (including the root account).
@@ -85,7 +84,7 @@
 	su root
 	we can gain access with our new password of 'bill123'
 	
-# Task 5 - Weak File Permissions Writable /etc/passwd
+### Task 5 - Weak File Permissions Writable /etc/passwd
 
 	The /etc/passwd file contains information about user accounts. It is world-readable, but usually only writable by the root user. 
 	Historically, the /etc/passwd file contained user password hashes, and some versions of Linux will still allow password hashes to be stored there.
@@ -95,7 +94,7 @@
 	Question Answers
 		'uid=0(root) gid=0(root) groups=0(root)'
 		
-# Task 6 - Sudo Shell Escape Sequences
+### Task 6 - Sudo Shell Escape Sequences
 
 	On a linux machine you can list all the processes a user can run as sudo by doing the following
 	sudo -l
@@ -107,7 +106,7 @@
 		'11'
 		'Apache2'
 		
-# Task 7 - Sudo Environment Values
+### Task 7 - Sudo Environment Values
 
 	Sudo can be configured to inherit certain environment variables from the user's environment.
 
@@ -141,7 +140,7 @@
 
 	A root shell should spawn. Exit out of the shell. Try renaming /tmp/libcrypt.so.1 to the name of another library used by apache2 and re-run apache2 using sudo again. Did it work? If not, try to figure out why not, and how the 		library_path.c code could be changed to make it work.
 	
-# Task 8 - Cron Jobs File Permissions
+### Task 8 - Cron Jobs File Permissions
 
 	Crons jobs are simply scripts that have been scheduled to run at specific times. A Cron Table file (crontabs) store the configuration for cron jobs which is stored @ /etc/crontab
 	
@@ -149,12 +148,12 @@
 	
 	This shell of course will be a root shell because cron jobs must run as root given they perform functions on the system
 	
-# Task 9 - Cron Jobs PATH Environment Variable
+### Task 9 - Cron Jobs PATH Environment Variable
 
 	Question Answers
 		'PATH=/home/user:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin'
 		
-# Task 10 - Cron Jobs Wildcards
+### Task 10 - Cron Jobs Wildcards
 
 	View the contents of the other cron job script:
 
@@ -189,7 +188,7 @@
 	rm /home/user/--checkpoint=1
 	rm /home/user/--checkpoint-action=exec=shell.elf
 	
-# Task 11 - SUID/SGID Executables Known Exploits
+### Task 11 - SUID/SGID Executables Known Exploits
 
 	Using the following command you can find all the SUID/SGID's on the system
 	find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
@@ -202,7 +201,7 @@
 	
 	We simply run the script and it puts us in a root shell
 	
-# Task 12 - SUID/SGID Executables Shared Object Injection
+### Task 12 - SUID/SGID Executables Shared Object Injection
 
 	The /usr/local/bin/suid-so SUID executable is vulnerable to shared object injection.
 
@@ -228,7 +227,7 @@
 
 	/usr/local/bin/suid-so
 	
-# Task 13 - SUID/SGID Executables Environment Variables
+### Task 13 - SUID/SGID Executables Environment Variables
 
 	The /usr/local/bin/suid-env executable can be exploited due to it inheriting the user's PATH environment variable and attempting to execute programs without specifying an absolute path.
 
@@ -250,7 +249,7 @@
 
 	PATH=.:$PATH /usr/local/bin/suid-env
 	
-# Task 14 - SUID/SGID Executables Abusing Shell Features (#1)
+### Task 14 - SUID/SGID Executables Abusing Shell Features (#1)
 
 	The /usr/local/bin/suid-env2 executable is identical to /usr/local/bin/suid-env except that it uses the absolute path of the service executable (/usr/sbin/service) to start the apache2 webserver.
 
@@ -273,7 +272,7 @@
 
 	/usr/local/bin/suid-env2
 	
-# Task 15 - SUID/SGID Executables Abusing Shell Features (#2)
+### Task 15 - SUID/SGID Executables Abusing Shell Features (#2)
 
 	Note: This will not work on Bash versions 4.4 and above.
 
@@ -292,7 +291,7 @@
 	rm /tmp/rootbash
 	exit
 	
-# Task 16 - Password & Keys History Files
+### Task 16 - Password & Keys History Files
 
 	Sometimes users make mistakes and type things into the command line they didn't mean to
 	
@@ -305,14 +304,14 @@
 	Question Answers
 		'mysql -h somehost.local -uroot -ppassword123'
 		
-# Task 17 - Password & Keys Config Files
+### Task 17 - Password & Keys Config Files
 
 	Config files often contain passwords in plaintext or other reversible formats
 	
 	Question Answers
 		'/etc/openvpn/auth.txt'
 		
-# Task 18 - Password & Keys SSH Keys
+### Task 18 - Password & Keys SSH Keys
 
 	It is possible, sometimes, to come across important files that haven't been properly secured with the correct permissions
 	This can lead to an attacker being able to get root user ssh keys
@@ -325,7 +324,7 @@
 	
 	It contains a root ssh key which we can grab, use 'chmod 600 root_key' to give it the necessary file permissions and then access the root ssh account
 	
-# Task 19 - NFS
+### Task 19 - NFS
 
 	Files created via NFS inherit the remote user's ID. If the user is root, and root squashing is enabled, the ID will instead be set to the "nobody" user.
 
@@ -359,7 +358,7 @@
 	Question Answers
 		'no_root_squash'
 		
-# Task 20 - Kernel Exploits
+### Task 20 - Kernel Exploits
 
 	Before we proceed, its important to note that kernel exploits can cause system instability so they should only be used as a last resort
 	
@@ -383,7 +382,7 @@
 	mv /tmp/bak /usr/bin/passwd
 	exit
 
-# Task 21 - Privilege Escalation Scripts
+### Task 21 - Privilege Escalation Scripts
 
 	There are 3 useful scripts on this machine that can be helpful for privilege escalation
 	linpeas
