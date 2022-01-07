@@ -11,35 +11,34 @@ Essentially, privilege escalation is taking a lower user level account and using
 Similarly when beginning a pentest, enumeration is the first part of priv esc. It's important to get a lay of the land
 so to speak so as to have as much information as possible to aid in the priv esc process. The following are some useful 
 commands that return important and very relevant information for priv esc.
-	1. 'hostname' - returns the hostname of the machine
-	2. 'uname -a' - returns system information such as additional detail about the kernal used by the system
-	3. '/proc/version' - provides information about the system processes
-	4. '/etc/issue' - contains information about the operating system
-	5. 'ps' - see the running processes on a linux machine
-	6. 'env' - returns environment variables
-	7. 'sudo -l' - lists all commands the current user can run as sudo
-	8. 'ls -la' - lists all information about the filesystem, i.e file permissions
-	9. 'id' - returns users privilege level and group memberships
-	10. '/etc/passwd' - displays the users on a linux system (NOTE: can be converted to an easy list to brute force by doing 'cat /etc/passwd | cut -d ":" -f 1')
-	11. 'history' - look at previously used commands on the system
-	12. 'ifconfig' - provides information on the network interfaces of a system. Can identify other networks that can be pivoted to
-	13. 'netstat' - can be used with different options to gather information on existing connections
+	- 'hostname' - returns the hostname of the machine
+	- 'uname -a' - returns system information such as additional detail about the kernal used by the system- '/proc/version' - provides information about the system processes
+   - '/etc/issue' - contains information about the operating system
+   - 'ps' - see the running processes on a linux machine
+   - 'env' - returns environment variables
+   - 'sudo -l' - lists all commands the current user can run as sudo
+   - 'ls -la' - lists all information about the filesystem, i.e file permissions
+   - 'id' - returns users privilege level and group memberships
+	- '/etc/passwd' - displays the users on a linux system (NOTE: can be converted to an easy list to brute force by doing 'cat /etc/passwd | cut -d ":" -f 1')
+	- 'history' - look at previously used commands on the system
+	- 'ifconfig' - provides information on the network interfaces of a system. Can identify other networks that can be pivoted to
+	- 'netstat' - can be used with different options to gather information on existing connections
 		- 'netstat -a': shows all listening ports and established connections.
-   		- 'netstat -at' or 'netstat -au': can also be used to list TCP or UDP protocols respectively.
+   	- 'netstat -at' or 'netstat -au': can also be used to list TCP or UDP protocols respectively.
   		- 'netstat -l': list ports in “listening” mode. These ports are open and ready to accept incoming connections. This can be used with the “t” option to list only ports that 
   		   are listening using the TCP protocol (below)
-    14. 'find' - used to search the file system for important information and potential priv esc vectors
+   - 'find' - used to search the file system for important information and potential priv esc vectors
   		- 'find . -name flag1.txt': find the file named “flag1.txt” in the current directory
-   		- 'find /home -name flag1.txt': find the file names “flag1.txt” in the /home directory
-	    - 'find / -type d -name config': find the directory named config under “/”
-	    - 'find / -type f -perm 0777': find files with the 777 permissions (files readable, writable, and executable by all users)
-	    - 'find / -perm a=x': find executable files
-	    - 'find /home -user frank': find all files for user “frank” under “/home”
-	    - 'find / -mtime 10': find files that were modified in the last 10 days
-	    - 'find / -atime 10': find files that were accessed in the last 10 day
-	    - 'find / -cmin -60': find files changed within the last hour (60 minutes)
-	    - 'find / -amin -60': find files accesses within the last' hour (60 minutes)
-	    - 'find / -size 50M': find files with a 50 MB size
+   	- 'find /home -name flag1.txt': find the file names “flag1.txt” in the /home directory
+	   - 'find / -type d -name config': find the directory named config under “/”
+	   - 'find / -type f -perm 0777': find files with the 777 permissions (files readable, writable, and executable by all users)
+	   - 'find / -perm a=x': find executable files
+	   - 'find /home -user frank': find all files for user “frank” under “/home”
+	   - 'find / -mtime 10': find files that were modified in the last 10 days
+   	- 'find / -atime 10': find files that were accessed in the last 10 day
+	   - 'find / -cmin -60': find files changed within the last hour (60 minutes)
+	   - 'find / -amin -60': find files accesses within the last' hour (60 minutes)
+	   - 'find / -size 50M': find files with a 50 MB size
 
 Question Answers
 	'wade7363'
