@@ -42,18 +42,18 @@ commands that return important and very relevant information for priv esc.
 
 Question Answers
 	'wade7363'
-		'3.13.0-24-generic'
-		'Ubuntu 14.04 LTS'
-		'2.7.6'
-		'CVE-2015-1328'
+	'3.13.0-24-generic'
+	'Ubuntu 14.04 LTS'
+	'2.7.6'
+	'CVE-2015-1328'
 
 ### Task 4 - Automated Enumeration
 
-LinPeas: https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
-LinEnum: https://github.com/rebootuser/LinEnum
-LES (Linux Exploit Suggester): https://github.com/mzet-/linux-exploit-suggester
-Linux Smart Enumeration: https://github.com/diego-treitos/linux-smart-enumeration
-Linux Priv Checker: https://github.com/linted/linuxprivchecker 
+ - LinPeas: https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS
+ - LinEnum: https://github.com/rebootuser/LinEnum
+ - LES (Linux Exploit Suggester): https://github.com/mzet-/linux-exploit-suggester
+ - Linux Smart Enumeration: https://github.com/diego-treitos/linux-smart-enumeration
+ - Linux Priv Checker: https://github.com/linted/linuxprivchecker 
 
 ### Task 5 - Privilege Escalation: Kernel Exploits
 
@@ -71,8 +71,8 @@ The Kernel exploit methodology is simple;
 
 Research sources:
 	 - Based on your findings, you can use Google to search for an existing exploit code.
-     - Sources such as https://www.linuxkernelcves.com/cves can also be useful.
-     - Another alternative would be to use a script like LES (Linux Exploit Suggester) but remember that these tools can generate false positives (report a kernel vulnerability that does
+    - Sources such as https://www.linuxkernelcves.com/cves can also be useful.
+    - Another alternative would be to use a script like LES (Linux Exploit Suggester) but remember that these tools can generate false positives (report a kernel vulnerability that does
        not affect the target system) or false negatives (not report any kernel vulnerabilities although the kernel is vulnerable).
 
 Hints/Notes:
@@ -81,7 +81,7 @@ Hints/Notes:
 	   or make irreversible changes to the system, creating problems later. Of course, these may not be great concerns within a lab or CTF environment, but these are absolute no-nos during a 
 	   real penetration testing engagement.
 	 - Some exploits may require further interaction once they are run. Read all comments and instructions provided with the exploit code.
-     - You can transfer the exploit code from your machine to the target system using the SimpleHTTPServer Python module and wget respectively. 
+    - You can transfer the exploit code from your machine to the target system using the SimpleHTTPServer Python module and wget respectively. 
 
 Question Answers
 	'CVE-2015-1328'
