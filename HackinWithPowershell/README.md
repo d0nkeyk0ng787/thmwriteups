@@ -30,3 +30,10 @@ $path = Get-Content -Path C:\Users\Administrator\Desktop\emails
 $pattern = 'https'
 $command = Get-ChildItem -Path $path -Recurse | Select-String $pattern
 echo $command
+
+Powershell Port Scanner
+
+for($i=130; $i -le 140; $i++)
+{
+    Test-netConnection localhost -Port $i
+}
