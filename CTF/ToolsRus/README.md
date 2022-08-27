@@ -10,16 +10,12 @@ bob:bubbles
 
 Starting with enumeration we run a gobuster scan ```gobuster dir -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http://10.10.158.186``` and an nmap scan ```nmap -sC -sV 10.10.158.186```
 
-![gobusterscan](CTF/ToolsRus/Screenshots/gobuster.png)
-![nmapscan](CTF/ToolsRus/Screenshots/nmapscan1.png)
-
 Our gobuster scan gives us the answer for our first three questions. We have some directories and from the **guidelines** directory a username **bob** and a potential attack vector, an insecure **Tomcat** server.
 
 First, it's worth running a bruteforce with hyrda to see if we can gain access to that **/protected** directory. The command for that is:
 ```hydra -l bob -P /usr/share/wordlists/rockyou.txt -t 1 -f 10.10.158.186 http-get /protected/```
 
 From there we get a result: **bubbles**
-![hydra](CTF/ToolsRus/Screenshots/hydra.png)
 
 We see this doesn't really get us anywhere, what a shame.
 
@@ -31,8 +27,6 @@ Our nmape scan returns some useful information:
 
 It would be worth running another gobuster scan, this time on the port **1234** to see what is hosted on that tomcat site.
 ```gobuster dir -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http://10.10.158.186:1234```
-
-![gobusterscan2](CTF/ToolsRus/Screenshots/gobuster2.png)
 
 We see there are a number of directories, the **manager** directory can be accessed with those credetials we got earlier. THM tells us to run a **nikto** scan on the **/manager/html** directory. 
 
