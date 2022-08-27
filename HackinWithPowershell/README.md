@@ -16,7 +16,7 @@
 
 Script to find a password
 
-```
+```powershell
 $path = Get-Content -Path C:\Users\Administrator\Desktop\emails
 $pattern = 'password'
 $command = Get-ChildItem -Path $path -Recurse | Select-String $pattern
@@ -27,7 +27,7 @@ Find a https link
 
 Note - Simply replace the $pattern variable of 'password' to 'https'
 
-```
+```powershell
 $path = Get-Content -Path C:\Users\Administrator\Desktop\emails
 $pattern = 'https'
 $command = Get-ChildItem -Path $path -Recurse | Select-String $pattern
