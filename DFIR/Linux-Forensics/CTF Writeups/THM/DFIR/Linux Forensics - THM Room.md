@@ -58,6 +58,8 @@ Show all running processes ```ps -e```
 
 Show all processes spawned from the current user ```ps -u```
 
+View systemd log information with ```jounralctl```
+
 ### Persistence Mechanisms
 
 To view the scheduled tasks on a linux system, aka **Cron Jobs**, ```cat /etc/crontab```
@@ -73,5 +75,18 @@ A log of all the commands that are run on a system as **sudo** can be found at `
 All other commands that are run without using sudo are stored in the ```~/.bash_history``` file.
 
 Vim stores logs for opened files in Vim in the ```~/.viminfo``` file.
+
+### Filesystem Information
+
+View file system information at ```/etc/fstab```
+
+Display file or filesystem status with ```stat```. Example ```stat /etc/resolv.conf```.
+
+Find more detailed information about a file with the following ```sudo debugfs -R 'stat /etc/resolv.conf' /dev/sda1```
+
+Find the root filesystem - ```df -h```.
+
+
+
 
 
