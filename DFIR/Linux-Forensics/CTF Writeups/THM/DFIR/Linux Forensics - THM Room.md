@@ -86,6 +86,14 @@ Find more detailed information about a file with the following ```sudo debugfs -
 
 Find the root filesystem - ```df -h```.
 
+### Browser Artifacts
+
+Mozilla Firefox browser history can be found at ```~/.mozilla/firefox/<random-string>.default-esr\places.sqlite```
+
+Google Chrome browser history can be found at ```~/.config/google-chrome/Default/History```
+
+
+
 
 
 
