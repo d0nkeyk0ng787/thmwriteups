@@ -22,6 +22,8 @@ Group information can be found at ```/etc/groups```
 
 Sudoers information can be found at ```/etc/sudoers```
 
+For hashed versions of users passwords ```/etc/shadow```
+
 ### Privileges
 
 The file privileges will look something like the following ```-rwxrw-r-x```. In this example the item is a file as is denoted by the ```-```, the file owner has read, write and execute permissions as is denoted by the ```rwx``` part, the group owner of the file has read and write permissions as is denoted by the ```rw-``` and all other users have read and execute permissions as is denoted by the ```r-x```.
@@ -32,6 +34,8 @@ Gather DNS information ```/etc/hosts```
 
 Gather DNS server information ```/etc/resolv.conf```
 
+The **inetd** daemon's config file can be found at ```/etc/inetd.conf  ```. This file contains a list of network services that **inetd** should listen for and launch upon request from clients.
+
 ### Network Information
 
 Gather open ports and services ```netstat -natp```
@@ -39,6 +43,10 @@ Gather open ports and services ```netstat -natp```
 ### Logs
 
 Syslog contains messages about  system activity. The detail of the recorded logs can be configured through the logging level. It is found at ```/var/log/syslog```.
+
+Syslog customisation can be done in the ```syslog.conf``` file found in the ```/etc``` directory.
+
+Tracking of user logins is stored in ```/var/log/lastlog```. This can be accessed on a live system via the command ```lastlog```.
 
 Login information can be found at ```/var/log/auth.log```. A useful command to filter out useful information is ```grep -v cron /var/log/auth.log*|grep -v sudo|grep -i user```.
 
@@ -48,7 +56,9 @@ Retrieve system status, reboot time, and user logins information. ```/var/log/wt
 
 Failed login attempts ```/var/logbtmp```.
 
-### Process Information
+Often linux systems are used as webservers. The logs location for a linux based webserver is generally ```/var/log/apache2/accesslog```. In the case that they are not there, simply cd into ```/var/log``` and run the following command ```find . -type f -name "*access.log*"```. If there are any access logs, that find command should locate them.
+
+### Process Information - Live system
 
 List all process information ```ps aux```
 
@@ -76,6 +86,10 @@ All other commands that are run without using sudo are stored in the ```~/.bash_
 
 Vim stores logs for opened files in Vim in the ```~/.viminfo``` file.
 
+Recently opened docs can be found at ```~/.recently-used``` or ```~/local/share/recently-used.xbel```
+
+Note: Different shell types will have their own history file. These are generally still found in the home directory of the user and will typically follow the format ```~/.*_history```
+
 ### Filesystem Information
 
 View file system information at ```/etc/fstab```
@@ -85,6 +99,8 @@ Display file or filesystem status with ```stat```. Example ```stat /etc/resolv.c
 Find more detailed information about a file with the following ```sudo debugfs -R 'stat /etc/resolv.conf' /dev/sda1```
 
 Find the root filesystem - ```df -h```.
+
+On debian systems, you can view details about installed packages at ```/var/lib/dpkg/status```. Information about when packages were installed can be found at ```/var/log/dpkg.log```. 
 
 ### Browser Artifacts
 
