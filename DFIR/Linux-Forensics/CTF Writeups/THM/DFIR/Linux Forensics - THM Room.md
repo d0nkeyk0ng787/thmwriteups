@@ -78,7 +78,7 @@ Linux (like Windows) has the ability got services to start and run in the backgr
 
 The ```~/.bashrc``` file contains terminal session configurations that are executed when a user logs in. 
 
-### Evidence of Execution
+### Evidence of Execution and Application Usage
 
 A log of all the commands that are run on a system as **sudo** can be found at ```/var/log/auth.log*```. A useful one-liner to retrieve these commands is ```cat /var/log/auth.log* | grep -i COMMAND | tail```
 
@@ -89,6 +89,16 @@ Vim stores logs for opened files in Vim in the ```~/.viminfo``` file.
 Recently opened docs can be found at ```~/.recently-used``` or ```~/local/share/recently-used.xbel```
 
 Note: Different shell types will have their own history file. These are generally still found in the home directory of the user and will typically follow the format ```~/.*_history```
+
+Historical use of the command ```less``` may exist in user home directories at ```~/.lesshst```
+
+Information about files that were recently accessed using applications running in the Gnome desktop can be found at ```~/.recently-used.xbel```.
+
+##### SSH
+
+SSH connection evidence may be found in the following file ```~/.ssh/authorised_keys```
+
+Another SSH path that may contain information about known hosts is ```~/.ssh/known_keys```
 
 ### Filesystem Information
 
@@ -104,9 +114,28 @@ On debian systems, you can view details about installed packages at ```/var/lib/
 
 ### Browser Artifacts
 
-Mozilla Firefox browser history can be found at ```~/.mozilla/firefox/<random-string>.default-esr\places.sqlite```
+Note - the path for the various Firefox artefacts may vary depending on the version of Firefox that is installed. For example, Kali uses **Firefox ESR** which has a path that looks like ```~/.mozzila/firefox/<random-string>.default-esr/```. Therefore, it is important to look around the ```~/.mozzila/fiefox/``` directory as the artefacts will be there, they just might be in a slightly different directory to the ones expressed below.
 
-Google Chrome browser history can be found at ```~/.config/google-chrome/Default/History```
+```~/.mozilla/firefox/<random_string>.default/places.sqlite``` Firefox bookmark database file and history
+```~/.mozilla/firefox/<random_string>.default/cookies.sqlite``` SQLite database containing information about website cookies
+```~/.mozilla/firefox/<random_string>.default/formhistory.sqlite``` SQLite database containing information about form entries
+```~/.mozilla/firefox/<random_string>.default/sessionstore.jsonlz4``` JSON file containing information about open tabs and windows
+```~/.mozilla/firefox/<random_string>.default/key4.db``` SQLite database containing encrypted form data, passwords, and certificates
+```~/.mozilla/firefox/<random_string>.default/cert9.db``` SQLite database containing SSL certificates
+```~/.mozilla/firefox/<random_string>.default/signons.sqlite``` SQLite database containing usernames and passwords
+```~/.mozilla/firefox/<random_string>.default/extensions/``` directory containing installed Firefox extensions
+```~/.mozilla/firefox/<random_string>.default/bookmarkbackups/``` directory containing backups of Firefox bookmarks
+```~/.mozilla/firefox/<random_string>.default/permissions.sqlite``` SQLite database containing permissions granted to websites
+```~/.mozilla/firefox/<random_string>.default/addons.json``` JSON file containing information about installed add-ons
+```~/.mozilla/firefox/<random_string>.default/search.json.mozlz4``` compressed JSON file containing information about search engines
+```~/.mozilla/firefox/<random_string>.default/formfill.sqlite``` SQLite database containing information about form entries
+
+``` ~/.config/google-chrome/Default/History``` Google Chrome browser history. ```~/.config/google-chrome/Default/Bookmarks``` Bookmarks saved in Google Chrome.
+```~/.config/google-chrome/Default/Cookies``` Cookies saved by Google Chrome.
+```~/.config/google-chrome/Default/Login Data``` Encrypted login credentials saved by Google Chrome.
+```~/.config/google-chrome/Default/Preferences``` User preferences for Google Chrome.
+```~/.config/google-chrome/Default/Top Sites``` List of top sites visited in Google Chrome.
+```~/.config/google-chrome/Default/Web Data``` SQLite database containing autocomplete form data, keywords and search terms.
 
 
 
