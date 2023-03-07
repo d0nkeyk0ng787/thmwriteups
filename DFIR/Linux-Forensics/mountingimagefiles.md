@@ -93,18 +93,14 @@ cat ./etc/passwd
 
 ### Mounting EWF Images
 
-
 ```bash
-#install ewf-tools
+# Install libewf2
+sudo apt install libewf2
+# Install ewf-tools
 sudo apt install ewf-tools
-#mount ewf container
-sudo mkdir /mnt/EWF-mount
-sudo ewfmount IMAGE.E01 /mnt/EWF-mount/
-cd /mnt/EWF-mount/
-ls -lah
-#mount image
-sudo mkdir /mnt/image-mount
-sudo mount /mnt/EWF-mount/ewf1 /mnt/image-mount -o ro,loop,show_sys_files,streams_interace=windows 
-# cd /mnt/image-mount
-# ls -lah 
+# Mount ewf container
+sudo ewfmount <image-name>.E01 /mnt/ewf
+# Mount the image
+sudo mount /mnt/ewf/ewf1 /mnt/e01/ -o ro,loop
+# To unmount
 ```
