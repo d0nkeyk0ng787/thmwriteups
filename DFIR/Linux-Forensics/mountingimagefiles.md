@@ -1,6 +1,6 @@
 # Mounting Forensic Image Files
 
-### Mounting Image Files
+### Mounting DD Image Files
 
 Before mounting the image files, it is imperative to ensure you have ```afflib-tools``` installed. This package provides access to the Advanced Forensic Format (AFF) Toolkit which is required for the conversion of the disk image to a raw format. This package can be installed as follows:
 ```bash
@@ -89,4 +89,22 @@ To ensure your commands are run against the mounted file system, simply add a **
 ```bash
 cd /media/images/ext4_fs2
 cat ./etc/passwd
+```
+
+### Mounting EWF Images
+
+
+```bash
+#install ewf-tools
+sudo apt install ewf-tools
+#mount ewf container
+sudo mkdir /mnt/EWF-mount
+sudo ewfmount IMAGE.E01 /mnt/EWF-mount/
+cd /mnt/EWF-mount/
+ls -lah
+#mount image
+sudo mkdir /mnt/image-mount
+sudo mount /mnt/EWF-mount/ewf1 /mnt/image-mount -o ro,loop,show_sys_files,streams_interace=windows 
+# cd /mnt/image-mount
+# ls -lah 
 ```
